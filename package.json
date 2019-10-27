@@ -4,6 +4,7 @@
   "description": "node server using facebook fasttext to check positive or negative",
   "main": "index.js",
   "scripts": {
+    "start": "ROOT_DIR=. node ./src/index.js",
     "train": "ROOT_DIR=. node ./src/train.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
