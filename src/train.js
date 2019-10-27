@@ -19,6 +19,12 @@ const train = async () => {
   const fastTextToTrain = new FastText({
     serializeTo: `${ROOT_DIR}/mlModel/twitter_model`,
     trainFile: `${ROOT_DIR}/dataset/tweets.train`,
+    train: {
+      epoch: 25,
+      lr: 0.5,
+      loss: 'hs',
+      wordNgrams: 2,
+    },
   });
   try {
     await fastTextToTrain.train();

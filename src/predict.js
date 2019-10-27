@@ -1,3 +1,4 @@
+const R = require('ramda');
 const FastText = require('fasttext.js');
 const { ROOT_DIR } = require('./config');
 
@@ -11,6 +12,14 @@ const predict = async (sentence) => {
   return labels;
 };
 
+const predictPositive = async ({ sentence, threshold = 0.5 }) => {
+  const labels = await predict(sentence);
+  const positiveLabel = R.find(R.propEq('label', '1'))(labels);
+  const negativeLabel = R.find(R.propEq('label', '0'))(labels);
+  return Number(positiveLabel.score) > Number(negativeLabel.score);
+};
+
 module.exports = {
   predict,
+  predictPositive,
 };
