@@ -4,6 +4,7 @@
   "description": "node server using facebook fasttext to check positive or negative",
   "main": "index.js",
   "scripts": {
+    "train": "node train",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
