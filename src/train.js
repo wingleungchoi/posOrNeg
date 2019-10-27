@@ -1,9 +1,11 @@
 const FastText = require('fasttext.js');
 
+const { ROOT_DIR } = require('./config');
+
 const test = async () => {
   const fastTextToTest = new FastText({
-    loadModel: './mlModel/twitter_model.bin',
-    testFile: './dataset/tweets.valid',
+    loadModel: `${ROOT_DIR}/mlModel/twitter_model.bin`,
+    testFile: `${ROOT_DIR}/dataset/tweets.valid`,
   });
   try {
     const evaluation = await fastTextToTest.test();
@@ -15,8 +17,8 @@ const test = async () => {
 
 const train = async () => {
   const fastTextToTrain = new FastText({
-    serializeTo: './mlModel/twitter_model',
-    trainFile: './dataset/tweets.train',
+    serializeTo: `${ROOT_DIR}/mlModel/twitter_model`,
+    trainFile: `${ROOT_DIR}/dataset/tweets.train`,
   });
   try {
     await fastTextToTrain.train();
