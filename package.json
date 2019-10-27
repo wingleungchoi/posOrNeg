@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "ROOT_DIR=. node ./src/index.js",
+    "start-dev": "ROOT_DIR=. nodemon ./src/index.js",
     "train": "ROOT_DIR=. node ./src/train.js",
     "test": "ROOT_DIR=. jest"
   },
@@ -14,10 +15,13 @@
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.4"
   },
   "dependencies": {
     "fasttext.js": "^1.1.2",
+    "koa": "^2.10.0",
+    "koa-bodyparser": "^4.2.1",
     "ramda": "^0.26.1"
   }
 }
