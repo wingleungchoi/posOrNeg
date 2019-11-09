@@ -23,3 +23,6 @@ curl -X POST \
 	"sentence": "It is a sad news!"
 }'
 ```
+# To push docker image to dockerhub
+- `docker login -u your_dockerhub_username `
+- `docker push your_dockerhub_username/pos-or-neg`
