@@ -9,11 +9,18 @@ router.get('/health', (ctx, next) => {
 
 router.post('/sentiment', async (ctx, next) => {
   const { sentence } = ctx.request.body;
-  ctx.body = {
-    positive: await predictPositive({
-      sentence,
-    }),
-  };
+  try {
+    ctx.body = {
+      positive: await predictPositive({
+        sentence,
+      }),
+    };
+  } catch (error) {
+    console.error(error);
+    ctx.body = {
+      error: error.message,
+    };
+  }
 });
 
 module.exports = {
